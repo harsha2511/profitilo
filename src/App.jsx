@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import './styles/global.css';
 
-import Particles from './components/Particles';
-import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
+import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
@@ -11,16 +10,9 @@ import Skills from './components/Skills';
 import Achievements from './components/Achievements';
 import Education from './components/Education';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 export default function App() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [isLight, setIsLight] = useState(() => localStorage.getItem('theme') === 'light');
-
-  useEffect(() => {
-    document.documentElement.classList.toggle('light', isLight);
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  }, [isLight]);
-
   useEffect(() => {
     const obs = new IntersectionObserver(
       entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
@@ -35,14 +27,9 @@ export default function App() {
 
   return (
     <>
-      <Particles />
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-      <Navbar
-        onHamburger={() => setSidebarOpen(o => !o)}
-        isLight={isLight}
-        onToggleTheme={() => setIsLight(l => !l)}
-      />
+      <Navbar />
       <div className="page-wrapper">
+        <Hero />
         <About />
         <Experience />
         <Projects />
@@ -50,6 +37,7 @@ export default function App() {
         <Achievements />
         <Education />
         <Contact />
+        <Footer />
       </div>
     </>
   );

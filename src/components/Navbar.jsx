@@ -1,14 +1,24 @@
 import { useEffect, useState } from 'react';
 import '../styles/navbar.css';
 
-export default function Navbar({ onHamburger, isLight, onToggleTheme }) {
+const LINKS = [
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'achievements', label: 'Awards' },
+  { id: 'contact', label: 'Contact' },
+];
+
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 30);
       const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
       setProgress(pct);
     };
@@ -22,20 +32,22 @@ export default function Navbar({ onHamburger, isLight, onToggleTheme }) {
     <>
       <div className="progress-bar" style={{ width: `${progress}%` }} />
       <nav className={`topnav${scrolled ? ' scrolled' : ''}`}>
-        <a className="nav-logo" href="#about">&lt;HK /&gt;</a>
+        <a className="nav-logo" href="#home" onClick={closeMenu}>
+          Harsha<span>.</span>
+        </a>
         <ul className={`nav-links${menuOpen ? ' open' : ''}`}>
-          {['about','experience','projects','skills','achievements','education','contact'].map(s => (
-            <li key={s}><a href={`#${s}`} onClick={closeMenu}>{s.charAt(0).toUpperCase() + s.slice(1)}</a></li>
+          {LINKS.map(l => (
+            <li key={l.id}><a href={`#${l.id}`} onClick={closeMenu}>{l.label}</a></li>
           ))}
+          <li className="nav-resume-li">
+            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="nav-resume" onClick={closeMenu}>
+              Resume
+            </a>
+          </li>
         </ul>
-        <div style={{ display:'flex', alignItems:'center', gap:'0.85rem' }}>
-          <button className="theme-toggle" onClick={onToggleTheme} aria-label="Toggle theme">
-            <div className="knob"><i className={`fas ${isLight ? 'fa-sun' : 'fa-moon'}`} /></div>
-          </button>
-          <button className="hamburger" onClick={() => { setMenuOpen(o => !o); onHamburger(); }} aria-label="Menu">
-            <span /><span /><span />
-          </button>
-        </div>
+        <button className="hamburger" onClick={() => setMenuOpen(o => !o)} aria-label="Menu">
+          <span /><span /><span />
+        </button>
       </nav>
     </>
   );
