@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0a0f;
+  --bg2: #0f0f1a;
+  --card: #161625;
+  --border: #1e1e35;
+  --accent: #7c3aed;
+  --accent2: #a855f7;
+  --accent3: #06b6d4;
+  --text: #e2e8f0;
+  --muted: #64748b;
+  --highlight: #f1f5f9;
+  --sidebar-w: 270px;
+  --nav-bg: rgba(10,10,15,0.75);
+  --nav-scrolled: rgba(10,10,15,0.97);
+}
+
+html.light {
+  --bg: #f8fafc;
+  --bg2: #f1f5f9;
+  --card: #ffffff;
+  --border: #cbd5e1;
+  --accent: #6d28d9;
+  --accent2: #7c3aed;
+  --accent3: #0891b2;
+  --text: #1e293b;
+  --muted: #64748b;
+  --highlight: #0f172a;
+  --nav-bg: rgba(248,250,252,0.8);
+  --nav-scrolled: rgba(248,250,252,0.97);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+.page-wrapper {
+  margin-left: var(--sidebar-w);
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 2.5rem 2rem;
+  scroll-margin-top: 0;
+}
+
+#about       { background: var(--bg2); padding-top: 5rem; }
+#experience  { background: var(--bg); }
+#projects    { background: var(--bg2); }
+#skills      { background: var(--bg); }
+#achievements{ background: var(--bg2); }
+#contact     { background: var(--bg); }
+
+.container { max-width: 960px; margin: 0 auto; width: 100%; }
+
+.section-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.78rem;
+  color: var(--accent3);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.section-title {
+  font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: var(--highlight);
+  margin-bottom: 0.75rem;
+}
+.section-line {
+  width: 55px; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent3));
+  border-radius: 2px;
+  margin-bottom: 1.25rem;
+}
+
+.reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-36px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(36px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+.btn {
+  padding: 0.6rem 1.2rem; border-radius: 100px; font-weight: 600;
+  font-size: 0.8rem; cursor: pointer; text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem;
+  border: none;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff; box-shadow: 0 4px 18px rgba(124,58,237,0.35);
+}
+.btn-primary:hover { box-shadow: 0 6px 24px rgba(124,58,237,0.55); }
+.btn-outline {
+  border: 1px solid var(--border); color: var(--text); background: transparent;
+}
+.btn-outline:hover { border-color: var(--accent2); box-shadow: 0 0 16px rgba(168,85,247,0.2); }
+
+.btn img.si { width: 14px; height: 14px; vertical-align: middle; display: inline-block; filter: grayscale(1) brightness(1.4); transition: filter 0.25s; }
+.btn:hover img.si { filter: none; }
+html.light .btn img.si { filter: grayscale(1) brightness(0.4); }
+html.light .btn:hover img.si { filter: none; }
+
+@keyframes fade-up { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+
+@media (max-width: 900px) {
+  :root { --sidebar-w: 0px; }
+  .page-wrapper { margin-left: 0; }
+  section { height: auto; min-height: 100vh; overflow: visible; padding: 5rem 1.5rem 3rem; }
+  #about { padding-top: 5.5rem; }
+}
+
+@media (max-width: 600px) {
+  section { padding: 5rem 1.1rem 2.5rem; }
+}

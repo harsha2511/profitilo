@@ -1,0 +1,78 @@
+/* ── Section override ── */
+#education { height: auto; overflow: visible; padding-bottom: 4rem; background: var(--bg2); }
+
+/* ── Timeline ── */
+.edu-timeline { position: relative; display: flex; flex-direction: column; gap: 1.25rem; }
+.edu-timeline::before {
+  content: ''; position: absolute; left: 17px; top: 0; bottom: 0;
+  width: 2px; background: linear-gradient(180deg, var(--accent), var(--accent3), transparent);
+}
+
+/* ── Item ── */
+.edu-item { display: flex; gap: 1.25rem; align-items: flex-start; }
+
+/* ── Dot ── */
+.edu-dot {
+  width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; color: #fff; position: relative; z-index: 1;
+  margin-top: 0.3rem;
+}
+.edu-dot--purple { background: linear-gradient(135deg, var(--accent), var(--accent2)); box-shadow: 0 0 14px rgba(124,58,237,0.5); }
+.edu-dot--cyan   { background: linear-gradient(135deg, #0891b2, #06b6d4); box-shadow: 0 0 14px rgba(6,182,212,0.5); }
+.edu-dot--green  { background: linear-gradient(135deg, #16a34a, #22c55e); box-shadow: 0 0 14px rgba(34,197,94,0.4); }
+.edu-dot--blue   { background: linear-gradient(135deg, #1d4ed8, #3b82f6); box-shadow: 0 0 14px rgba(59,130,246,0.5); }
+
+/* ── Card ── */
+.edu-card {
+  flex: 1; background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 1rem 1.25rem;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.edu-card:hover { border-color: var(--accent); transform: translateX(4px); }
+
+.edu-card-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem;
+}
+
+.edu-institution {
+  font-size: 0.98rem; font-weight: 700; color: var(--highlight); margin-bottom: 0.15rem;
+}
+.edu-degree { font-size: 0.82rem; color: var(--accent2); }
+
+.edu-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.4rem; flex-shrink: 0; }
+.edu-period {
+  font-size: 0.7rem; color: var(--accent3); font-family: 'Fira Code', monospace;
+  background: rgba(6,182,212,0.1); padding: 0.15rem 0.55rem; border-radius: 100px;
+  white-space: nowrap;
+}
+.edu-period i { margin-right: 0.3rem; }
+
+.edu-grade {
+  font-size: 0.75rem; font-weight: 700; font-family: 'Fira Code', monospace;
+  padding: 0.2rem 0.65rem; border-radius: 100px;
+}
+.edu-grade--purple { background: rgba(124,58,237,0.12); color: var(--accent2); border: 1px solid rgba(124,58,237,0.28); }
+.edu-grade--cyan   { background: rgba(6,182,212,0.10); color: var(--accent3); border: 1px solid rgba(6,182,212,0.25); }
+.edu-grade--green  { background: rgba(34,197,94,0.10); color: #22c55e; border: 1px solid rgba(34,197,94,0.25); }
+.edu-grade--blue   { background: rgba(59,130,246,0.10); color: #3b82f6; border: 1px solid rgba(59,130,246,0.25); }
+
+/* ── Tags ── */
+.edu-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.edu-tag {
+  padding: 0.2rem 0.6rem; border-radius: 100px;
+  background: rgba(124,58,237,0.09); border: 1px solid rgba(124,58,237,0.2);
+  font-size: 0.65rem; color: var(--accent2); font-family: 'Fira Code', monospace;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .edu-timeline::before { left: 16px; }
+  .edu-item { gap: 1rem; }
+}
+@media (max-width: 600px) {
+  .edu-card-top { flex-direction: column; }
+  .edu-right { align-items: flex-start; }
+  .edu-card { padding: 0.85rem; }
+}

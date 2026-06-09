@@ -1,0 +1,146 @@
+/* ── Contact Section ── */
+#contact {
+  text-align: center;
+  height: 100vh;
+  padding: 2.5rem 2.5rem !important;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.contact-heading {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 900;
+  color: var(--highlight);
+  margin-bottom: 0.4rem;
+}
+.contact-heading span { color: var(--muted); }
+
+.contact-subtitle {
+  color: var(--muted);
+  font-size: 0.85rem;
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.6;
+}
+
+/* Two-column layout */
+.contact-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  text-align: left;
+}
+
+/* ── Left column ── */
+.contact-left h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--highlight);
+  margin-bottom: 0.5rem;
+}
+.contact-left > p {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.65;
+  margin-bottom: 1.1rem;
+}
+
+.contact-info-cards { display: flex; flex-direction: column; gap: 0.55rem; }
+
+.contact-info-card {
+  display: flex; align-items: center; gap: 0.9rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.contact-info-card:hover { border-color: var(--accent2); transform: translateX(4px); }
+
+.cic-icon {
+  width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+}
+.cic-icon.purple { background: rgba(124,58,237,0.15); color: var(--accent2); }
+.cic-icon.green  { background: rgba(34,197,94,0.13);  color: #22c55e; }
+.cic-icon.cyan   { background: rgba(6,182,212,0.13);  color: var(--accent3); }
+
+.cic-label { font-size: 0.67rem; color: var(--muted); margin-bottom: 0.05rem; }
+.cic-sub   { font-size: 0.68rem; color: var(--muted); margin-bottom: 0.1rem; }
+.cic-value { font-size: 0.82rem; font-weight: 700; color: var(--highlight); }
+
+/* ── Right column ── */
+.contact-right { display: flex; flex-direction: column; gap: 0.65rem; }
+
+.contact-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem;
+  transition: border-color 0.25s;
+}
+.contact-panel:hover { border-color: var(--accent); }
+
+.panel-header {
+  display: flex; align-items: center; gap: 0.55rem;
+  margin-bottom: 0.4rem;
+}
+.panel-icon {
+  width: 28px; height: 28px; border-radius: 8px;
+  background: rgba(124,58,237,0.12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.8rem; color: var(--accent2);
+}
+.panel-title { font-size: 0.88rem; font-weight: 700; color: var(--highlight); }
+
+.panel-desc { font-size: 0.77rem; color: var(--muted); line-height: 1.55; margin-bottom: 0.75rem; }
+
+/* Social icons grid */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.45rem;
+}
+.social-item {
+  display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+  padding: 0.5rem 0.3rem;
+  border: 1px solid var(--border); border-radius: 9px;
+  text-decoration: none; color: var(--muted);
+  font-size: 0.65rem;
+  transition: all 0.2s;
+}
+.social-item:hover { border-color: var(--accent2); color: var(--accent2); background: rgba(168,85,247,0.08); }
+.social-item i { font-size: 1rem; }
+.social-item img.si { width: 16px; height: 16px; filter: grayscale(1) brightness(1.5); transition: filter 0.2s; }
+.social-item:hover img.si { filter: none; }
+html.light .social-item img.si { filter: grayscale(1) brightness(0.4); }
+html.light .social-item:hover img.si { filter: none; }
+
+/* Available for Work */
+.avail-header {
+  display: flex; align-items: center; gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+.avail-dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: #22c55e; flex-shrink: 0;
+  animation: pulse-dot 1.5s ease infinite;
+}
+@keyframes pulse-dot { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.4);opacity:0.7} }
+.avail-title { font-size: 0.88rem; font-weight: 700; color: var(--highlight); }
+.avail-desc  { font-size: 0.77rem; color: var(--muted); line-height: 1.55; }
+
+/* Quick Response */
+.qr-emoji { font-size: 1rem; }
+
+@media (max-width: 900px) {
+  #contact { height: auto; overflow: auto; padding: 5rem 1.5rem 3rem !important; }
+  .contact-body { grid-template-columns: 1fr; }
+  .social-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+  #contact { padding: 5rem 1.1rem 2.5rem !important; }
+}

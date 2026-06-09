@@ -1,0 +1,84 @@
+/* ── Color tokens per category ── */
+.sc-purple { --cc: #a855f7; }
+.sc-violet  { --cc: #7c3aed; }
+.sc-cyan    { --cc: #06b6d4; }
+.sc-green   { --cc: #22c55e; }
+.sc-blue    { --cc: #3b82f6; }
+.sc-amber   { --cc: #f59e0b; }
+
+/* ── Grid ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0.85rem;
+}
+
+/* ── Card ── */
+.skill-category {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-top: 2.5px solid var(--cc);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: border-color 0.3s, transform 0.25s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.skill-category::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--cc) 6%, transparent), transparent 60%);
+  pointer-events: none;
+}
+.skill-category:hover {
+  border-color: var(--cc);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px color-mix(in srgb, var(--cc) 20%, transparent);
+}
+
+/* ── Header ── */
+.skill-cat-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--highlight);
+  margin-bottom: 0.75rem;
+}
+.skill-cat-icon {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--cc) 15%, transparent);
+  color: var(--cc);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.78rem;
+  flex-shrink: 0;
+}
+
+/* ── Tags ── */
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.skill-tag {
+  padding: 0.25rem 0.7rem;
+  border-radius: 100px;
+  background: color-mix(in srgb, var(--cc) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cc) 25%, transparent);
+  font-size: 0.72rem;
+  color: var(--text);
+  transition: all 0.2s;
+  cursor: default;
+}
+.skill-tag:hover {
+  background: color-mix(in srgb, var(--cc) 20%, transparent);
+  border-color: var(--cc);
+  color: var(--cc);
+  transform: scale(1.05);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .skills-grid { grid-template-columns: 1fr; }
+}

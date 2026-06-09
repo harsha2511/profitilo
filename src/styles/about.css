@@ -1,0 +1,46 @@
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+.about-text p { color: var(--muted); font-size: 0.88rem; line-height: 1.75; margin-bottom: 0.5rem; }
+.about-text p span { color: var(--accent2); font-weight: 600; }
+.about-info { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem; margin-top: 0.85rem; }
+.info-item { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 0.65rem; transition: border-color 0.2s; }
+.info-item:hover { border-color: var(--accent2); }
+.info-item .label { font-size: 0.67rem; color: var(--muted); margin-bottom: 0.15rem; }
+.info-item .value { font-size: 0.8rem; color: var(--text); font-weight: 500; }
+
+.edu-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+  padding: 1.25rem; position: relative; overflow: hidden;
+}
+.edu-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent3));
+}
+.edu-card .institute { font-size: 1rem; font-weight: 700; color: var(--highlight); margin-bottom: 0.4rem; }
+.edu-card .degree { font-size: 0.85rem; color: var(--accent2); margin-bottom: 0.75rem; }
+.edu-card .date { font-size: 0.72rem; color: var(--muted); font-family: 'Fira Code', monospace; margin-bottom: 0.75rem; }
+.edu-card .coursework-label { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.65rem; font-weight: 600; }
+.courses { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.course-tag {
+  padding: 0.25rem 0.7rem; border-radius: 100px;
+  background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.28);
+  font-size: 0.72rem; color: var(--accent2);
+}
+
+.stats { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 1.25rem 0 0; }
+.stat { text-align: center; }
+.stat-num {
+  font-size: 2.2rem; font-weight: 900;
+  background: linear-gradient(135deg, var(--accent2), var(--accent3));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  font-family: 'Fira Code', monospace;
+}
+.stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
+
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .stats { gap: 1.5rem; }
+}
+@media (max-width: 600px) {
+  .about-info { grid-template-columns: 1fr 1fr; }
+  .stat-num { font-size: 1.8rem; }
+}

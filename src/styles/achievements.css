@@ -1,0 +1,103 @@
+/* ── Color tokens ── */
+.achievement-card.gold   { --ac: #f59e0b; }
+.achievement-card.blue   { --ac: #3b82f6; }
+.achievement-card.purple { --ac: #a855f7; }
+.achievement-card.green  { --ac: #22c55e; }
+.achievement-card.red    { --ac: #ef4444; }
+
+/* ── Grid ── */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.7rem;
+}
+
+/* ── Card ── */
+.achievement-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--ac);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  transition: all 0.25s;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+}
+.achievement-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--ac) 5%, transparent), transparent 55%);
+  pointer-events: none;
+}
+.achievement-card:hover {
+  border-color: var(--ac);
+  transform: translateX(4px);
+  box-shadow: 0 6px 24px color-mix(in srgb, var(--ac) 18%, transparent);
+}
+
+/* ── Icon ── */
+.ach-icon {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  background: color-mix(in srgb, var(--ac) 14%, transparent);
+  color: var(--ac);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ac) 25%, transparent);
+}
+
+/* ── Text ── */
+.ach-body { flex: 1; min-width: 0; }
+.ach-text { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+.ach-text strong { color: var(--highlight); font-weight: 700; }
+
+.ach-platform {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.4rem;
+  font-size: 0.67rem;
+  color: var(--ac);
+  background: color-mix(in srgb, var(--ac) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ac) 22%, transparent);
+  padding: 0.15rem 0.55rem;
+  border-radius: 100px;
+  font-family: 'Fira Code', monospace;
+}
+
+/* ── Hover overlay (linked cards only) ── */
+.ach-hover-overlay {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--ac) 12%, rgba(10,10,15,0.6));
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 11px;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.achievement-card:hover .ach-hover-overlay { opacity: 1; }
+
+.ach-view-btn {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  padding: 0.4rem 1rem; border-radius: 100px;
+  background: var(--ac);
+  color: #fff; font-size: 0.78rem; font-weight: 600;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--ac) 50%, transparent);
+  transition: transform 0.2s;
+}
+.achievement-card:hover .ach-view-btn { transform: scale(1.06); }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .achievements-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .achievements-grid { grid-template-columns: 1fr; }
+}
