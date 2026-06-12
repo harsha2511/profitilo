@@ -12,7 +12,7 @@ export default function Hero() {
     <section id="home" className="hero">
       <div className="hero-inner">
         <div className="hero-photo-wrap">
-          <img src="/profile.jpg" alt="Harsha Kumari" className="hero-photo" />
+          <div className="hero-photo" role="img" aria-label="Harsha Kumari" />
           <span className="hero-status-dot" title="Open to opportunities" />
         </div>
 

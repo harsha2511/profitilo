@@ -14,7 +14,7 @@ export default function ProfileSidebar({ visible }) {
   return (
     <aside className={`profile-sidebar${visible ? ' visible' : ''}`} aria-hidden={!visible}>
       <div className="ps-avatar-wrap">
-        <img src="/profile.jpg" alt="Harsha Kumari" className="ps-avatar" />
+        <div className="ps-avatar" role="img" aria-label="Harsha Kumari" />
         <span className="ps-status-dot" />
       </div>
       <div className="ps-name">Harsha Kumari</div>
