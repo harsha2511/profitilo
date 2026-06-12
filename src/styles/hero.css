@@ -5,6 +5,9 @@
   position: relative;
   overflow: hidden;
 }
+html.dark .hero {
+  background: linear-gradient(180deg, #0f1b33 0%, #0c142400 55%, var(--bg) 100%);
+}
 .hero::before {
   content: '';
   position: absolute;
@@ -102,7 +105,7 @@ a.hero-contact-item:hover { color: var(--accent); }
   margin: 0 auto;
 }
 .hero-stat {
-  background: #fff;
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1.4rem 0.8rem;

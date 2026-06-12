@@ -21,6 +21,23 @@
   --shadow-lg: 0 12px 40px rgba(37,99,235,0.12);
 }
 
+html.dark {
+  --bg: #0b1120;
+  --bg2: #0f172a;
+  --card: #161e2f;
+  --border: #243049;
+  --accent: #3b82f6;
+  --accent2: #60a5fa;
+  --accent3: #22d3ee;
+  --text: #cbd5e1;
+  --muted: #94a3b8;
+  --highlight: #f1f5f9;
+  --nav-bg: rgba(11,17,32,0.85);
+  --nav-scrolled: rgba(11,17,32,0.97);
+  --shadow: 0 4px 24px rgba(0,0,0,0.45);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.55);
+}
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -99,7 +116,7 @@ section {
 }
 .btn-primary:hover { box-shadow: 0 8px 26px rgba(37,99,235,0.45); }
 .btn-outline {
-  border: 1px solid var(--border); color: var(--text); background: #fff;
+  border: 1px solid var(--border); color: var(--text); background: var(--card);
 }
 .btn-outline:hover { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 16px rgba(37,99,235,0.12); }
 

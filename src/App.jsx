@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './styles/global.css';
 
 import Navbar from './components/Navbar';
@@ -13,6 +13,13 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
+  const [isDark, setIsDark] = useState(() => localStorage.getItem('theme') === 'dark');
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }, [isDark]);
+
   useEffect(() => {
     const obs = new IntersectionObserver(
       entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
@@ -27,7 +34,7 @@ export default function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar isDark={isDark} onToggleTheme={() => setIsDark(d => !d)} />
       <div className="page-wrapper">
         <Hero />
         <About />
