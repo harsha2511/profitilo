@@ -3,6 +3,63 @@ import '../styles/projects.css';
 
 const PROJECTS = [
   {
+    icon: '💰',
+    name: 'WalletWiseWeb',
+    year: '2024',
+    desc: 'Personal finance web app for expense tracking, budgeting & spending insights — 🏆 Rank 9th at BMSCE Hackathon.',
+    shortTech: ['Node.js', 'Express', 'MongoDB'],
+    tech: ['Node.js', 'Express.js', 'MongoDB', 'JavaScript', 'HTML', 'CSS'],
+    points: [
+      'Secured Rank 9th among 90+ teams at the BMSCE Hackathon with this financial management platform.',
+      'Built expense tracking with interactive charts to help users visualize daily spending at a glance.',
+      'Added category-wise budget management with limits and progress monitoring.',
+      'Generated spending-pattern insights and money-saving suggestions, backed by a Node/Express + MongoDB API.',
+    ],
+    href: 'https://github.com/harsha2511/WalletWiseWeb',
+  },
+  {
+    icon: '🎬',
+    name: 'Movie Recommender System',
+    year: '2024',
+    desc: 'Content-based movie recommender that suggests 5 similar films with live posters from the TMDB API.',
+    shortTech: ['Python', 'Streamlit', 'Pandas'],
+    tech: ['Python', 'Streamlit', 'Pandas', 'Scikit-learn', 'TMDB API', 'Pickle'],
+    points: [
+      'Built a content-based recommendation engine returning the top 5 most similar movies for any selected title.',
+      'Used precomputed cosine-similarity matrices serialized with pickle for instant lookups — no heavy runtime computation.',
+      'Integrated the TMDB API to dynamically fetch and display movie posters in a clean Streamlit grid UI.',
+    ],
+    href: 'https://github.com/harsha2511/Recommendationsystem',
+  },
+  {
+    icon: '📖',
+    name: 'Library Management System',
+    year: '2024',
+    desc: 'Full-stack library platform for inventory, members, and loan tracking with both a CLI and a web dashboard.',
+    shortTech: ['Python', 'Flask', 'SQLite'],
+    tech: ['Python', 'Flask', 'SQLite', 'Bootstrap 5', 'Jinja2', 'HTML'],
+    points: [
+      'Developed a comprehensive system handling book inventory, member registration, and loan tracking.',
+      'Implemented a loan engine with automatic 14-day periods and overdue penalty calculation (Rs 2/day).',
+      'Shipped both a command-line interface and a Flask + Bootstrap web dashboard backed by SQLite.',
+    ],
+    href: 'https://github.com/harsha2511/Library-Management-system',
+  },
+  {
+    icon: '🚗',
+    name: 'Motors — Dealership Platform',
+    year: '2024',
+    desc: 'Modern, responsive car-dealership management web app with a clean component-based architecture.',
+    shortTech: ['Vue', 'TypeScript', 'Vite'],
+    tech: ['Vue.js', 'TypeScript', 'Vite', 'Tailwind CSS', 'Vitest', 'ESLint'],
+    points: [
+      'Developed a responsive automotive dealership management interface (96%+ TypeScript).',
+      'Architected reusable, modular Vue components for a scalable and maintainable UI.',
+      'Set up a professional toolchain with Vite, Tailwind CSS, Vitest testing, and ESLint.',
+    ],
+    href: 'https://github.com/harsha2511/Motors',
+  },
+  {
     icon: '🎮',
     name: 'Tic Tac Toe AI',
     year: '2024–25',
@@ -47,6 +104,19 @@ const PROJECTS = [
       'Built with responsive Bootstrap design and subtle animations for a clean, engaging experience.',
     ],
     href: 'https://github.com/harsha2511kumari',
+  },
+  {
+    icon: '💻',
+    name: 'RIT Code',
+    year: '2023–24',
+    desc: 'A front-end web project built from scratch with vanilla HTML, CSS, and JavaScript.',
+    shortTech: ['HTML', 'CSS', 'JavaScript'],
+    tech: ['HTML', 'CSS', 'JavaScript'],
+    points: [
+      'Built a responsive front-end web project using only vanilla HTML, CSS, and JavaScript.',
+      'Structured with a clean separation of markup, styling, and interactive scripts.',
+    ],
+    href: 'https://github.com/harsha2511/code',
   },
 ];
 
