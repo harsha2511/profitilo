@@ -57,6 +57,10 @@ body {
   margin-left: 0;
   position: relative;
   z-index: 1;
+  transition: padding-left 0.45s cubic-bezier(0.4,0,0.2,1);
+}
+@media (min-width: 1101px) {
+  .page-wrapper.shifted { padding-left: 270px; }
 }
 
 section {
