@@ -1,7 +1,7 @@
 import '../styles/hero.css';
 
 const STATS = [
-  { num: '8+', label: 'Projects Built' },
+  { num: '10+', label: 'Projects Built' },
   { num: '3', label: 'Internships' },
   { num: '8+', label: 'Awards & Honors' },
   { num: '1712', label: 'Peak Rating' },
